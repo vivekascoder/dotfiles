@@ -122,14 +122,14 @@ export zshrc="$HOME/.zshrc"
 export GEM_HOME="$HOME/.local/gems"
 export PATH="$PATH:$HOME/.local/gems/bin"
 export ROCKET_HOME="$HOME/.local"
-NPM_PACKAGES="${HOME}/.npm-packages"
 
+# For using npm without sudo
+NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+
 alias ssh-dev="issh vivekascoder@divcorn.centralindia.cloudapp.azure.com -L 3000:localhost:3000 -L 8080:localhost:8080 -L 8000:localhost:8000"
 alias dmenu='dmenu -i -l 10 -fn "Iosevka Nerd Font" -p "Select File: " -nb "#282a36" -nf "#f8f8f2" -sf "#44475a" -sb "#bd93f9" '
 # Krunker: Hello@321
@@ -144,3 +144,15 @@ alias s='vlc -I ncurses --no-video ~/Music 2> /dev/null'
 alias walme='cat /home/vivekascoder/.config/nitrogen/bg-saved.cfg | grep file | cut -d= -f2 | xargs wal -i'
 alias config='/usr/bin/git --git-dir=/home/vivekascoder/dotfiles/ --work-tree=/home/vivekascoder'
 alias getgif='ffmpeg -i qtile.mp4 -ss 00:00:00.000 -pix_fmt rgb24 -r 10 -s 960x540 -t 00:00:10.000 output.gif'
+
+## Some Aliases for git.
+alias gs='git status'
+alias gp='git push'
+alias gc='git checkout'
+alias gb='git branch'
+alias gr='git remote'
+
+## Some nodejs alias
+alias nr="npm run"
+alias nrs="npm run serve"
+alias nrd="npm run dev"
